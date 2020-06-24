@@ -7,3 +7,5 @@ if [ -z "$directory" ]; then
 fi
 find "$directory" -type f -print0 | xargs -0 grep -nH "$gattern"
 
+
+#
