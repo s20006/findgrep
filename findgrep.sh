@@ -2,10 +2,19 @@
 
 pattern=$1
 directory=$2
+name=$3
 if [ -z "$directory" ]; then
+	# current directory
 	directory='.'
+
 fi
-find "$directory" -type f -print0 | xargs -0 grep -nH "$gattern"
+
+if [ -z "$name" ]; then
+	$name='*'
+fi
+# -n : print line number
+# -H : print the file name
+find "$directory" -type f -name "$name" -print0 | xargs -0 grep -nH "$gattern"
 
 
 #
